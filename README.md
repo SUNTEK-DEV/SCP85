@@ -53,11 +53,11 @@ The core library is `printer-lib-3.5.5.aar`, which can be directly referenced in
 
 The SDK archive includes the following developer manuals (in both English and Chinese):
 
-- Android CPCL Program Manual / CPCL 编程手册
-- Android Port Program Manual / 接口编程手册
-- Android POS Program Manual / POS 编程手册
-- Android TSPL Program Manual / TSPL 编程手册
-- Android ZPL Program Manual / ZPL 编程手册
+- Android CPCL Program Manual / CP Programming Manual
+- Android Port Program Manual / Programming Manual
+- Android POS Program Manual / POS Programming Manual
+- Android TSPL Program Manual / TSPL Programming Manual
+- Android ZPL Program Manual / ZPL Programming Manual
 
 ## Windows SDK
 
