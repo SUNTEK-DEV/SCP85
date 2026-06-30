@@ -1,57 +1,57 @@
-# SUNTEK SCP85 票据/标签打印机 SDK 合集
+# SUNTEK SCP85 Ticket / Label Printer SDK Collection
 
-本仓库收集了 SUNTEK SCP85 系列打印机在各平台下的开发工具包（SDK）及驱动程序，方便开发者快速集成打印功能。
+This repository contains software development kits (SDKs) and drivers for the SUNTEK SCP85 series printers across multiple platforms, enabling developers to quickly integrate printing capabilities.
 
-## 仓库内容
+## Repository Contents
 
-| 文件 | 说明 | 版本 |
-|------|------|------|
-| `Android+SDK+3.5.5.zip` | Android 平台 SDK，含 Demo 工程 | v3.5.5 |
-| `SUNTEK Ticket Product SDK Development Kit+Windows+2.3.1.zip` | Windows 平台 SDK，含 CPCL / ESC / TSPL / ZPL 四个子模块 | v2.3.1 |
-| `iOS+SDK+v3.2.7.7z` | iOS 平台 SDK | v3.2.7 |
-| `Xprinter_2024.2_M-1.exe` | Windows 打印机驱动安装程序 | v2024.2 M-1 |
+| File | Description | Version |
+|------|-------------|---------|
+| `Android+SDK+3.5.5.zip` | Android SDK with demo project | v3.5.5 |
+| `SUNTEK Ticket Product SDK Development Kit+Windows+2.3.1.zip` | Windows SDK with CPCL / ESC / TSPL / ZPL sub-modules | v2.3.1 |
+| `iOS+SDK+v3.2.7.7z` | iOS SDK | v3.2.7 |
+| `Xprinter_2024.2_M-1.exe` | Windows printer driver installer | v2024.2 M-1 |
 
-## 支持的打印协议
+## Supported Printing Protocols
 
-- **CPCL** — 移动标签打印指令语言
-- **TSPL** — TSC 打印机指令语言
-- **ZPL** — Zebra 打印机指令语言
-- **ESC/POS** — 票据打印机通用指令集
-- **POS** — POS 模式打印
+- **CPCL** — Mobile label printing command language
+- **TSPL** — TSC printer command language
+- **ZPL** — Zebra printer command language
+- **ESC/POS** — Universal receipt printer command set
+- **POS** — POS mode printing
 
-## 支持的连接方式
+## Supported Connection Methods
 
-- 蓝牙（Bluetooth）
-- 网络（TCP / UDP）
+- Bluetooth
+- Network (TCP / UDP)
 - WiFi
 - USB
 
 ## Android SDK
 
-Android SDK（v3.5.5）提供完整的 Kotlin Demo 工程，涵盖以下功能模块：
+The Android SDK (v3.5.5) includes a complete Kotlin demo project with the following modules:
 
-| Activity | 说明 |
-|----------|------|
-| `MainActivity` | 主入口，选择连接方式与打印协议 |
-| `CpclActivity` | CPCL 协议打印 |
-| `TsplActivity` | TSPL 协议打印 |
-| `ZplActivity` | ZPL 协议打印 |
-| `PosActivity` / `PosTaskActivity` | POS 模式打印 |
-| `EscMultiConnectionActivity` | ESC/POS 多连接管理 |
-| `SelectBluetoothActivity` | 蓝牙设备选择 |
-| `SelectNetActivity` | 网络设备选择 |
+| Activity | Description |
+|----------|-------------|
+| `MainActivity` | Entry point for selecting connection method and printing protocol |
+| `CpclActivity` | CPCL protocol printing |
+| `TsplActivity` | TSPL protocol printing |
+| `ZplActivity` | ZPL protocol printing |
+| `PosActivity` / `PosTaskActivity` | POS mode printing |
+| `EscMultiConnectionActivity` | ESC/POS multi-connection management |
+| `SelectBluetoothActivity` | Bluetooth device selection |
+| `SelectNetActivity` | Network device selection |
 
-核心库文件为 `printer-lib-3.5.5.aar`，开发者可直接引用。
+The core library is `printer-lib-3.5.5.aar`, which can be directly referenced in your project.
 
-### 快速开始
+### Getting Started
 
-1. 解压 `Android+SDK+3.5.5.zip`
-2. 用 Android Studio 打开 `Android SDK 3.5.5/PrinterDemo` 工程
-3. 编译运行 Demo App，参照各 Activity 代码进行集成
+1. Extract `Android+SDK+3.5.5.zip`
+2. Open the `Android SDK 3.5.5/PrinterDemo` project in Android Studio
+3. Build and run the demo app, and refer to each Activity's source code for integration
 
-### 文档
+### Documentation
 
-SDK 压缩包内附以下开发手册（中英文）：
+The SDK archive includes the following developer manuals (in both English and Chinese):
 
 - Android CPCL Program Manual / CPCL 编程手册
 - Android Port Program Manual / 接口编程手册
@@ -61,40 +61,40 @@ SDK 压缩包内附以下开发手册（中英文）：
 
 ## Windows SDK
 
-Windows SDK（v2.3.1）基于 C++ 开发，按打印协议分为四个子目录：
+The Windows SDK (v2.3.1) is developed in C++ and organized into four sub-directories by printing protocol:
 
-| 子目录 | 协议 | 内容 |
-|--------|------|------|
-| `cpcl/` | CPCL | SDK 库（x86/x64）+ WinSDKDemo + 开发手册 |
-| `esc/` | ESC/POS | SDK 库（x86/x64）+ WinSDKDemo + 开发手册 |
-| `tspl/` | TSPL | SDK 库（x86/x64）+ WinSDKDemo + 开发手册 |
-| `zpl/` | ZPL | SDK 库（x86/x64）+ WinSDKDemo + 开发手册 |
+| Sub-directory | Protocol | Contents |
+|---------------|----------|----------|
+| `cpcl/` | CPCL | SDK libraries (x86/x64) + WinSDKDemo + developer manual |
+| `esc/` | ESC/POS | SDK libraries (x86/x64) + WinSDKDemo + developer manual |
+| `tspl/` | TSPL | SDK libraries (x86/x64) + WinSDKDemo + developer manual |
+| `zpl/` | ZPL | SDK libraries (x86/x64) + WinSDKDemo + developer manual |
 
-每个子目录均包含：
+Each sub-directory contains:
 
-- `lib/` — 动态链接库（`printer.sdk.dll`）和导入库（`printer.sdk.lib`），同时支持 x86 和 x64
-- `Sample/` — 预编译的 WinSDKDemo 可执行文件
-- `WinSDKDemo/` — Visual Studio 工程源码（`.sln` + `.vcxproj`）
-- SDK Manual（英文）和 指令开发手册（中文）
+- `lib/` — Dynamic link library (`printer.sdk.dll`) and import library (`printer.sdk.lib`), supporting both x86 and x64
+- `Sample/` — Pre-built WinSDKDemo executable
+- `WinSDKDemo/` — Visual Studio project source code (`.sln` + `.vcxproj`)
+- SDK Manual (English) and command development guide (Chinese)
 
-### 快速开始
+### Getting Started
 
-1. 解压 `SUNTEK Ticket Product SDK Development Kit+Windows+2.3.1.zip`
-2. 用 Visual Studio 打开对应协议子目录下的 `WinSDKDemo.sln`
-3. 或直接运行 `Sample/x64/WinSDKDemo.exe` 体验 Demo
+1. Extract `SUNTEK Ticket Product SDK Development Kit+Windows+2.3.1.zip`
+2. Open `WinSDKDemo.sln` in the relevant protocol sub-directory with Visual Studio
+3. Or run `Sample/x64/WinSDKDemo.exe` directly to try the demo
 
 ## iOS SDK
 
-iOS SDK（v3.2.7）以 7z 压缩包形式提供，解压后可获取 iOS 平台下的打印开发库及示例工程。
+The iOS SDK (v3.2.7) is provided as a 7z archive. Extract it to access the iOS printing library and sample project.
 
-## 驱动安装
+## Driver Installation
 
-在 Windows 系统下，运行 `Xprinter_2024.2_M-1.exe` 即可安装打印机驱动。
+On Windows, run `Xprinter_2024.2_M-1.exe` to install the printer driver.
 
-## 相关链接
+## Links
 
-- GitHub 仓库：[https://github.com/SUNTEK-DEV/SCP85](https://github.com/SUNTEK-DEV/SCP85)
+- GitHub Repository: [https://github.com/SUNTEK-DEV/SCP85](https://github.com/SUNTEK-DEV/SCP85)
 
-## 许可证
+## License
 
-本项目仅供开发参考使用，具体许可条款请联系 SUNTEK 官方确认。
+This project is provided for development reference only. For specific licensing terms, please contact SUNTEK directly.
